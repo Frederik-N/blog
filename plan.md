@@ -3,21 +3,22 @@
 
 This document lists the remaining tasks and planned improvements for the personal blog project.
 
-## In Progress
 
-- Run: Start the development server with `npm run dev` and complete any remaining setup.
+## Next Step: SEO
 
-## Next Steps
+- Add essential meta tags to all pages (title, description, keywords, author, viewport, etc.).
+- Implement Open Graph and Twitter Card tags for rich social sharing.
+- Add structured data (JSON-LD) for blog posts and site information.
+- Generate and serve a sitemap.xml for search engines.
+- Create and serve a robots.txt file to control crawler access.
+- Ensure all pages have unique and descriptive titles and meta descriptions.
+- Optimize page URLs and slugs for readability and SEO.
+- Add canonical URLs to prevent duplicate content issues.
+- Use semantic HTML elements (header, nav, main, article, aside, footer) throughout the site.
+- Add alt text to all images and icons for accessibility and SEO.
+- Test the site with tools like Google Lighthouse and fix any SEO-related issues reported.
 
-- Testing: Test the application thoroughly on different devices and browsers.
-- Performance Optimization: Implement lazy loading, image optimization, and other performance improvements.
-- SEO: Add meta tags, structured data, and sitemap generation.
-- Analytics: Integrate Google Analytics or similar tracking.
-- Comments System: Implement a comments system (e.g., Disqus or custom solution).
-- Search Functionality: Add full-text search capabilities.
-- RSS Feed: Generate an RSS feed for blog subscribers.
-
-## Planned Design & UX Improvements
+## Then: Design & UX Improvements
 
 - Increase contrast and separation between columns and background.
 - Standardize padding and spacing across all components.
@@ -36,3 +37,12 @@ This document lists the remaining tasks and planned improvements for the persona
 - Add a footer with copyright, social links, and a back-to-top button.
 - Add smooth transitions for theme changes, hovers, and menu toggles.
 - Improve accessibility: color contrast, focus states, and alt text for images/icons.
+
+## Remaining Next Steps
+
+- Testing: Test the application thoroughly on different devices and browsers.
+- Performance Optimization: Implement lazy loading, image optimization, and other performance improvements.
+- Analytics: Integrate Google Analytics or similar tracking.
+- Comments System: Implement a comments system (e.g., Disqus or custom solution).
+- Search Functionality: Add full-text search capabilities.
+- RSS Feed: Generate an RSS feed for blog subscribers.
