@@ -16,7 +16,7 @@ export function createPostFromModule(path: string, post: PostModule): Post {
     title: post.title,
     date: post.date,
     excerpt: '',
-    component: null,
+    component: post.default,
     author: post.author,
     tags: post.tags,
     frontmatter: {

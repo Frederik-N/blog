@@ -17,8 +17,10 @@ function getPostsFromFiles() {
 function generateSitemap() {
   const posts = getPostsFromFiles();
   const postUrls = posts.map(post => {
-    // Ensure post.path uses forward slashes for URLs
-    const normalizedPath = post.path.replace(/\\/g, '/');
+    // Ensure post.path uses forward slashes for URLs and is of the form /blog/{slug}
+    let normalizedPath = post.path.replace(/\\/g, '/');
+    // Remove any leading /src/posts/ or src/posts/ from the path
+    normalizedPath = normalizedPath.replace(/^\/src\/posts\//, '/blog/').replace(/^src\/posts\//, '/blog/');
     return `
     <url>
       <loc>${BASE_URL}${normalizedPath}</loc>

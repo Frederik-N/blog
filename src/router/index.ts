@@ -50,7 +50,7 @@ const router = createRouter({
 const setMeta = (to: RouteLocationNormalized) => {
   const title = `Frederik Sahlholdt | ${to.meta.title}`;
   const description = to.meta.description as string;
-  const keywords = to.meta.keywords as string;
+  const keywords = (to.meta.keywords as string) ?? '';
   const url = `https://frederiksahlholdt.com${to.path}`;
   const image = `https://frederiksahlholdt.com/src/assets/logo.png`;
 
@@ -71,8 +71,8 @@ const setMeta = (to: RouteLocationNormalized) => {
 
   for (const name in metaTags) {
     const el = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
-    if (el && metaTags[name]) {
-      el.setAttribute('content', metaTags[name]);
+    if (el) {
+      el.setAttribute('content', metaTags[name] ?? '');
     }
   }
 
