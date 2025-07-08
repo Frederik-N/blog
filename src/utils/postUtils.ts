@@ -1,16 +1,18 @@
 import type { Post, PostModule, SortOption } from '../types'
 import { SORT_OPTIONS } from '../constants'
 
-export function createPostFromModule(path: string, post: PostModule): Post {
-  const slug = path.replace('./posts/', '').replace('.md', '')
+export function createPostFromModule(path: string, post: any): Post {
+  const slug = path.split('/').pop()?.replace('.md', '');
   
   return {
     path: `/blog/${slug}`,
+
+
     slug,
     title: post.title,
     date: post.date,
     excerpt: '',
-    component: post.default,
+    component: null,
     author: post.author,
     tags: post.tags,
     frontmatter: {

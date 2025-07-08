@@ -3,15 +3,16 @@
 
 This document lists the remaining tasks and planned improvements for the personal blog project.
 
-
-## Next Step: SEO
-
+## Completed: SEO
 - Add essential meta tags to all pages (title, description, keywords, author, viewport, etc.).
+- Ensure all pages have unique and descriptive titles and meta descriptions.
 - Implement Open Graph and Twitter Card tags for rich social sharing.
 - Add structured data (JSON-LD) for blog posts and site information.
 - Generate and serve a sitemap.xml for search engines.
+
+## Next Step: SEO
+
 - Create and serve a robots.txt file to control crawler access.
-- Ensure all pages have unique and descriptive titles and meta descriptions.
 - Optimize page URLs and slugs for readability and SEO.
 - Add canonical URLs to prevent duplicate content issues.
 - Use semantic HTML elements (header, nav, main, article, aside, footer) throughout the site.

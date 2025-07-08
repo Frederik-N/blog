@@ -17,4 +17,9 @@ export function getPosts(): Post[] {
   return sortPosts(posts, SORT_OPTIONS.NEWEST)
 }
 
+export function getPost(slug: string): Post | undefined {
+  const posts = getPosts()
+  return posts.find(p => p.slug === slug)
+}
+
 
