@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+    <url>
+      <loc>https://frederiksahlholdt.com/</loc>
+      <lastmod>2025-07-08T14:12:24.073Z</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://frederiksahlholdt.com/about</loc>
+      <lastmod>2025-07-08T14:12:24.073Z</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    <url>
+      <loc>https://frederiksahlholdt.com/blog</loc>
+      <lastmod>2025-07-08T14:12:24.073Z</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>https://frederiksahlholdt.com/blog/my-first-post</loc>
+      <lastmod>2025-07-02T00:00:00.000Z</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+</urlset>

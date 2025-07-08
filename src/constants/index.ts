@@ -26,6 +26,14 @@ export const ROUTES = {
   BLOG_POST: '/blog'
 } as const
 
+export const SITE_CONFIG = {
+  BASE_URL: 'https://frederiksahlholdt.com',
+  TITLE: 'Frederik Sahlholdt | Blog',
+  DESCRIPTION: 'A personal blog by Frederik Sahlholdt. I write about software development, technology, and other things I find interesting.',
+  AUTHOR: 'Frederik Sahlholdt',
+  KEYWORDS: 'blog, frederik sahlholdt, software development, technology, javascript, typescript, vue, node'
+} as const
+
 export const DEFAULT_AUTHOR = 'Frederik Sahlholdt'
 export const CONTACT_EMAIL = 'frederikksnielsen@gmail.com'
 export const LINKEDIN_URL = 'https://dk.linkedin.com/in/frederik-sahlholdt-0b00ab1a7' 

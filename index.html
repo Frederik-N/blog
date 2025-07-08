@@ -4,7 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/src/assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frederik Sahlholdt Blog</title>
+    <meta name="description" content="A personal blog by Frederik Sahlholdt. I write about software development, technology, and other things I find interesting." />
+    <meta name="keywords" content="blog, frederik sahlholdt, software development, technology, javascript, typescript, vue, react, node" />
+    <meta name="author" content="Frederik Sahlholdt" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://frederiksahlholdt.com/">
+    <meta property="og:title" content="Frederik Sahlholdt | Blog">
+    <meta property="og:description" content="A personal blog by Frederik Sahlholdt. I write about software development, technology, and other things I find interesting.">
+    <meta property="og:image" content="https://frederiksahlholdt.com/src/assets/logo.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://frederiksahlholdt.com/">
+    <meta name="twitter:title" content="Frederik Sahlholdt | Blog">
+    <meta name="twitter:description" content="A personal blog by Frederik Sahlholdt. I write about software development, technology, and other things I find interesting.">
+    <meta name="twitter:image" content="https://frederiksahlholdt.com/src/assets/logo.png">
+
+    <title>Frederik Sahlholdt | Blog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
@@ -12,5 +30,19 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Frederik Sahlholdt | Blog",
+      "url": "https://frederiksahlholdt.com/",
+      "description": "A personal blog by Frederik Sahlholdt. I write about software development, technology, and other things I find interesting.",
+      "author": {
+        "@type": "Person",
+        "name": "Frederik Sahlholdt",
+        "url": "https://frederiksahlholdt.com/"
+      }
+    }
+    </script>
   </body>
 </html>
