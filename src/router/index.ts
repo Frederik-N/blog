@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, type RouteLocationNormalized } from 'vue-router'
 import Home from '../pages/Home.vue'
 import About from '../pages/About.vue'
 import Blog from '../pages/Blog.vue'
@@ -47,7 +47,7 @@ const router = createRouter({
   routes,
 })
 
-const setMeta = (to) => {
+const setMeta = (to: RouteLocationNormalized) => {
   const title = `Frederik Sahlholdt | ${to.meta.title}`;
   const description = to.meta.description as string;
   const keywords = to.meta.keywords as string;
@@ -56,7 +56,7 @@ const setMeta = (to) => {
 
   document.title = title;
 
-  const metaTags = {
+  const metaTags: { [key: string]: string } = {
     'description': description,
     'keywords': keywords,
     'og:title': title,
@@ -123,7 +123,7 @@ const setMeta = (to) => {
   }
 }
 
-router.afterEach((to, from) => {
+router.afterEach((to: RouteLocationNormalized) => {
   setMeta(to);
 });
 

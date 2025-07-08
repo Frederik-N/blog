@@ -16,13 +16,17 @@ function getPostsFromFiles() {
 
 function generateSitemap() {
   const posts = getPostsFromFiles();
-  const postUrls = posts.map(post => `
+  const postUrls = posts.map(post => {
+    // Ensure post.path uses forward slashes for URLs
+    const normalizedPath = post.path.replace(/\\/g, '/');
+    return `
     <url>
-      <loc>${BASE_URL}${post.path}</loc>
+      <loc>${BASE_URL}${normalizedPath}</loc>
       <lastmod>${new Date().toISOString()}</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
-    </url>`);
+    </url>`;
+  });
 
   const staticUrls = [
     '/',
