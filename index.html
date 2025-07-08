@@ -16,11 +16,11 @@
     <meta property="og:image" content="https://frederiksahlholdt.com/src/assets/logo.png">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://frederiksahlholdt.com/">
-    <meta property="twitter:title" content="Frederik Sahlholdt | Blog">
-    <meta property="twitter:description" content="A personal blog by Frederik Sahlholdt. I write about software development, technology, and other things I find interesting.">
-    <meta property="twitter:image" content="https://frederiksahlholdt.com/src/assets/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://frederiksahlholdt.com/">
+    <meta name="twitter:title" content="Frederik Sahlholdt | Blog">
+    <meta name="twitter:description" content="A personal blog by Frederik Sahlholdt. I write about software development, technology, and other things I find interesting.">
+    <meta name="twitter:image" content="https://frederiksahlholdt.com/src/assets/logo.png">
 
     <title>Frederik Sahlholdt | Blog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +31,18 @@
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
     <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Frederik Sahlholdt | Blog",
+      "url": "https://frederiksahlholdt.com/",
+      "description": "A personal blog by Frederik Sahlholdt. I write about software development, technology, and other things I find interesting.",
+      "author": {
+        "@type": "Person",
+        "name": "Frederik Sahlholdt",
+        "url": "https://frederiksahlholdt.com/"
+      }
+    }
     </script>
   </body>
 </html>

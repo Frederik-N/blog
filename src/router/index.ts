@@ -4,6 +4,7 @@ import About from '../pages/About.vue'
 import Blog from '../pages/Blog.vue'
 import Post from '../pages/Post.vue'
 import { getPosts, getPost } from '../posts'
+import { SITE_CONFIG } from '../constants'
 
 const routes = [
   { 
@@ -11,7 +12,7 @@ const routes = [
     component: Home,
     meta: {
       title: 'Home',
-      description: 'A personal blog by Frederik Sahlholdt. I write about software development, technology, and other things I find interesting.'
+      description: SITE_CONFIG.DESCRIPTION
     }
   },
   { 
@@ -19,7 +20,7 @@ const routes = [
     component: About,
     meta: {
       title: 'About',
-      description: 'About Frederik Sahlholdt.'
+      description: `About ${SITE_CONFIG.AUTHOR}.`
     }
   },
   { 
@@ -27,7 +28,7 @@ const routes = [
     component: Blog,
     meta: {
       title: 'Blog',
-      description: 'All blog posts from Frederik Sahlholdt.'
+      description: `All blog posts from ${SITE_CONFIG.AUTHOR}.`
     }
   },
   ...getPosts().map(post => ({
@@ -47,13 +48,7 @@ const router = createRouter({
   routes,
 })
 
-const setMeta = (to: RouteLocationNormalized) => {
-  const title = `Frederik Sahlholdt | ${to.meta.title}`;
-  const description = to.meta.description as string;
-  const keywords = (to.meta.keywords as string) ?? '';
-  const url = `https://frederiksahlholdt.com${to.path}`;
-  const image = `https://frederiksahlholdt.com/src/assets/logo.png`;
-
+const updateMetaTags = (title: string, description: string, keywords: string, url: string, image: string) => {
   document.title = title;
 
   const metaTags: { [key: string]: string } = {
@@ -70,22 +65,33 @@ const setMeta = (to: RouteLocationNormalized) => {
   };
 
   for (const name in metaTags) {
-    const el = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
+    let el = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
     if (el) {
       el.setAttribute('content', metaTags[name] ?? '');
+    } else {
+      el = document.createElement('meta');
+      if (name.startsWith('og:') || name.startsWith('twitter:')) {
+        el.setAttribute('property', name);
+      } else {
+        el.setAttribute('name', name);
+      }
+      el.setAttribute('content', metaTags[name] ?? '');
+      document.head.appendChild(el);
     }
   }
+};
 
+const updateJsonLd = (to: RouteLocationNormalized, url: string, image: string) => {
   const jsonLdEl = document.querySelector('script[type="application/ld+json"]');
   if (jsonLdEl) {
     let jsonLd: any = {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      'url': 'https://frederiksahlholdt.com/',
-      'name': 'Frederik Sahlholdt | Blog',
+      'url': SITE_CONFIG.BASE_URL,
+      'name': SITE_CONFIG.TITLE,
       'author': {
         '@type': 'Person',
-        'name': 'Frederik Sahlholdt'
+        'name': SITE_CONFIG.AUTHOR
       }
     };
 
@@ -100,11 +106,11 @@ const setMeta = (to: RouteLocationNormalized) => {
           'datePublished': post.date,
           'author': {
             '@type': 'Person',
-            'name': 'Frederik Sahlholdt'
+            'name': SITE_CONFIG.AUTHOR
           },
           'publisher': {
             '@type': 'Organization',
-            'name': 'Frederik Sahlholdt',
+            'name': SITE_CONFIG.AUTHOR,
             'logo': {
               '@type': 'ImageObject',
               'url': image
@@ -121,6 +127,17 @@ const setMeta = (to: RouteLocationNormalized) => {
     }
     jsonLdEl.textContent = JSON.stringify(jsonLd, null, 2);
   }
+};
+
+const setMeta = (to: RouteLocationNormalized) => {
+  const title = `${SITE_CONFIG.TITLE} | ${to.meta.title}`;
+  const description = to.meta.description as string;
+  const keywords = (to.meta.keywords as string) ?? SITE_CONFIG.KEYWORDS;
+  const url = `${SITE_CONFIG.BASE_URL}${to.path}`;
+  const image = `${SITE_CONFIG.BASE_URL}/src/assets/logo.png`;
+
+  updateMetaTags(title, description, keywords, url, image);
+  updateJsonLd(to, url, image);
 }
 
 router.afterEach((to: RouteLocationNormalized) => {

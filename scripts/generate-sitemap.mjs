@@ -1,9 +1,11 @@
 import { writeFileSync, readFileSync } from 'fs';
 import { globSync } from 'glob';
 import matter from 'gray-matter';
-import { createPostFromModule } from '../src/utils/postUtils.js';
+import { createPostFromModule } from '../src/utils/postUtils.ts';
 
-const BASE_URL = 'https://frederiksahlholdt.com';
+import { SITE_CONFIG } from '../src/constants/index.ts';
+
+const BASE_URL = SITE_CONFIG.BASE_URL;
 
 function getPostsFromFiles() {
   const files = globSync('src/posts/*.md');
@@ -24,7 +26,7 @@ function generateSitemap() {
     return `
     <url>
       <loc>${BASE_URL}${normalizedPath}</loc>
-      <lastmod>${new Date().toISOString()}</lastmod>
+      <lastmod>${new Date(post.date).toISOString()}</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
     </url>`;

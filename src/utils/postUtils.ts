@@ -1,8 +1,9 @@
 import type { Post, PostModule, SortOption } from '../types'
 import { SORT_OPTIONS } from '../constants'
 
+
 export function createPostFromModule(path: string, post: PostModule): Post {
-  const slugPart = path.split('/').pop();
+  const slugPart = path.split(/[\\/]/).pop();
   if (!slugPart) {
     throw new Error(`Cannot derive slug from path: ${path}`);
   }
@@ -15,7 +16,7 @@ export function createPostFromModule(path: string, post: PostModule): Post {
     slug,
     title: post.title,
     date: post.date,
-    excerpt: '',
+    excerpt: post.excerpt || '',
     component: post.default,
     author: post.author,
     tags: post.tags,
@@ -24,6 +25,7 @@ export function createPostFromModule(path: string, post: PostModule): Post {
       date: post.date,
       author: post.author,
       tags: post.tags,
+      excerpt: post.excerpt || '',
     },
   }
 }
