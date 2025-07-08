@@ -1,8 +1,12 @@
 import type { Post, PostModule, SortOption } from '../types'
 import { SORT_OPTIONS } from '../constants'
 
-export function createPostFromModule(path: string, post: any): Post {
-  const slug = path.split('/').pop()?.replace('.md', '');
+export function createPostFromModule(path: string, post: PostModule): Post {
+  const slugPart = path.split('/').pop();
+  if (!slugPart) {
+    throw new Error(`Cannot derive slug from path: ${path}`);
+  }
+  const slug = slugPart.replace('.md', '');
   
   return {
     path: `/blog/${slug}`,

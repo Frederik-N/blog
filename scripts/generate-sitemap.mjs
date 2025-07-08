@@ -1,7 +1,7 @@
 import { writeFileSync, readFileSync } from 'fs';
 import { globSync } from 'glob';
 import matter from 'gray-matter';
-import { createPostFromModule } from '../src/utils/postUtils.ts';
+import { createPostFromModule } from '../src/utils/postUtils.js';
 
 const BASE_URL = 'https://frederiksahlholdt.com';
 
